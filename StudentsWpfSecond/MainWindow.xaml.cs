@@ -20,9 +20,30 @@ namespace StudentsWpfSecond
     /// </summary>
     public partial class MainWindow : Window
     {
+        private string _right1;
+
+        private string _right2;
+        
+        public string Answer1 { get; set; }
+        
+        public string Answer2 { get; set; }
         public MainWindow()
         {
             InitializeComponent();
+            _right1 = "Десять";
+            _right2 = "Двенадцать";
+            DataContext = this;
+        }
+
+        private void ButtonClick(object sender, RoutedEventArgs e)
+        {
+            int counter = 0;
+            if (Answer1 == _right1)
+                counter++;
+            if (Answer2 == _right2)
+                counter++;
+
+            MessageBox.Show("Правильных ответов: " + counter);
         }
     }
 }
